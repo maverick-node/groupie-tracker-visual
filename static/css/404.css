@@ -1,0 +1,138 @@
+@font-face {
+    font-family: "IBM-Regular";
+    src: url(/static/fonts/Ghost\ Factory.ttf);
+}
+
+@font-face {
+    font-family: "IBM-Text";
+    src: url(/static/fonts/Ghost\ Factory.ttf);
+}
+
+:root {
+    --white15: #E3E3E3;
+    --grey80: #333333;
+    --grey90: #1A1A1A;
+    --purple15: #CAADFF;
+    --purple30: #9969FF;
+    --purple45: #601AFF;
+    --black: var(--grey90);
+}
+
+::selection {
+    background-color: var(--purple15);
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* Ensure the video is behind other content */
+}
+
+
+html {
+    color: rgb(255, 174, 0);
+    font-family: "IBM-Regular";
+    background-color: var(--black);
+    background-image: url(/static/public/01-trame\ rotated3.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* .container {
+    width: 80%;
+    background-color: #E3E3E3;
+    border: #9969FF solid 2px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 8px white;
+    opacity: 0.8;
+    margin: auto;
+    margin-top: 240px;
+} */
+
+p {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* font-family: "IBM-Text"; */
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: solid 2px rgb(255, 174, 0);
+}
+
+p,
+a {
+    color: rgb(255, 174, 0);
+    font-size: 30px;
+    -webkit-text-stroke: #1A1A1A 1px;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.error-img {
+    width: 180px;
+    height: 180px;
+}
+
+.e404-container {
+    display: flex;
+    flex-direction: row;
+    margin: 201px 0px 5px 0px;
+    -webkit-text-stroke: var(--black) 1px
+}
+
+.num {
+    font-size: 300px;
+}
+
+@media screen and (max-width: 600px) and (min-width: 320px) {
+    h1 {
+        font-size: 140px;
+        margin: 300px 0px 5px 0px;
+    }
+
+    p,
+    a {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 601px) {
+    h1 {
+        font-size: 200px;
+        margin: 300px 0px 5px 0px;
+    }
+
+    p,
+    a {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    h1 {
+        font-size: 650px;
+        -webkit-text-stroke: var(--black) 7px;
+    }
+
+    p,
+    a {
+        font-size: 30px;
+    }
+}

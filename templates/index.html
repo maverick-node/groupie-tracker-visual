@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <title>Groupie Tracker</title>
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="https://videos.pexels.com/video-files/4124198/4124198-hd_1920_1080_24fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="navigation-bar">
+        <div id="navigation-container">
+            <h1 class="logo">Groupie Tracker</h1>
+            <ul>
+                <li>
+                    <form action="/search" method="get">
+                        <div class="search-all">
+                            <label class="label-search" for="search">Search:</label>
+                            <input type="search3" list="search2" id="search" name="search" autocomplete="off">
+                            <button type="submit">
+                            </button>
+                        </div>
+                    </form>
+                </li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="https://github.com/yourusername/groupie-tracker" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="filtersContainer">
+        <input class="filter-btn" type="checkbox" id="toggle" />
+        <label class="toggle-label" for="toggle">Filters</label>
+        <div class="content">
+            <form action="/filters" method="get">
+                <div class="date-inputs">
+                    <div class="date-input">
+                        <label for="creationDateRange">Creation Date Range:</label>
+                        <input type="range" id="creationDateStart" name="creationDateStart" min="1900" max="2024" value="1900" />
+                        <input type="range" id="creationDateEnd" name="creationDateEnd" min="1900" max="2024" value="2024" />
+                    </div>
+                    <div class="date-input">
+                        <label for="firstAlbumDateRange">First Album Date Range:</label>
+                        <input type="range" id="firstAlbumDateStart" name="firstAlbumDateStart" min="1900" max="2024" value="1900" />
+                        <input type="range" id="firstAlbumDateEnd" name="firstAlbumDateEnd" min="1900" max="2024" value="2024" />
+                    </div>
+                </div>
+                
+                <div class="members-fieldset">
+                    <fieldset>
+                        <legend>Number Of Members:</legend>
+                        <div class="members-checkboxes">
+                            <label><input type="checkbox" value="1" name="Member">1</label>
+                            <label><input type="checkbox" value="2" name="Member">2</label>
+                            <label><input type="checkbox" value="3" name="Member">3</label>
+                            <label><input type="checkbox" value="4" name="Member">4</label>
+                            <label><input type="checkbox" value="5" name="Member">5</label>
+                            <label><input type="checkbox" value="6" name="Member">6</label>
+                            <label><input type="checkbox" value="7" name="Member">7</label>
+                            <label><input type="checkbox" value="8" name="Member">8</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <br>
+                <div class="locations-filter">
+                    <label for="locationsfilter">Locations Filter:</label>
+                    <input type="search" list="search1" id="locationsfilter" name="filter" autocomplete="off">
+                    <button type="submit">
+                    </button>
+                </div>
+                <datalist id="search1">
+                    {{range .OptionsLocations}}
+                    <option value="{{.}}"></option>
+                    {{end}}
+                </datalist>
+            </form>
+        </div>
+    </div>
+    <datalist id="search2">
+        {{range .Artists}}
+        <option value="{{.Name}}">artist/band</option>
+        <option value="{{.CreationDate}}">CreationDate</option>
+        <option value="{{.FirstAlbum}}">FirstAlbum</option>
+        {{range .Members}}
+        <option value="{{.}}">Member</option>
+        {{end}}
+        {{end}}
+        {{range .OptionsLocations}}
+        <option value="{{.}}">location</option>
+        {{end}}
+        {{range .OptionsDates}}
+        <option value="{{.}}">Date</option>
+        {{end}}
+    </datalist>
+    </form>
+    <div class="container">
+        {{range .Artists}}
+        <div class="card">
+            <div>
+                <a href="informations/{{.Id}}"><img src="{{.Image}}" alt="{{.Name}}"></a>
+            </div>
+            <div>
+                {{.Name}}
+            </div>
+            </form>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>

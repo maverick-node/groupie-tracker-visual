@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "IBM-Regular";
+    src: url(/static/fonts/IBMPlexMono-regular-latin.woff2);
+}
+
+@font-face {
+    font-family: "IBM-Text";
+    src: url(/static/fonts/IBMPlexSans-text-latin.woff2);
+}
+
+:root {
+    --white15: #E3E3E3;
+    --grey80: #333333;
+    --grey90: #1A1A1A;
+    --purple15: #CAADFF;
+    --purple30: #9969FF;
+    --purple45: #601AFF;
+    --black: var(--grey90);
+}
+
+::selection {
+    background-color: var(--purple15);
+}
+
+html {
+    color: rgb(255, 174, 0);
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* font-family: "IBM-Regular"; */
+    background-color: var(--white15);
+    background-image: url(/static/public/01-trame\ rotated3.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    /* Ensure the video is behind other content */
+}
+
+p {
+    /* font-family: "IBM-Text"; */
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+p,
+a {
+    font-size: 20px;
+    /* -webkit-text-stroke: var(--purple45) 1px; */
+}
+
+div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+}
+
+img {
+    margin-top: 190px;
+}
+
+@media screen and (max-width: 600px) and (min-width: 320px) {
+
+    p,
+    a {
+        font-size: 10px;
+    }
+
+    img {
+        width: 300px;
+        margin-top: 280px;
+    }
+}
+
+@media screen and (max-width: 1280px) and (min-width: 601px) {
+
+    p,
+    a {
+        font-size: 15px;
+    }
+
+    img {
+        width: 440px;
+        margin-top: 220px;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+
+    p,
+    a {
+        font-size: 40px;
+        -webkit-text-stroke: var(--purple45) 2px;
+    }
+
+    img {
+        width: 1000px;
+        margin-top: 310px;
+    }
+}

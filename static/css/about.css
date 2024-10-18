@@ -1,0 +1,160 @@
+/* Modern CSS for Groupie Tracker About Page */
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Background Video */
+#background-video {
+position:fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    filter: brightness(50%);
+}
+
+/* Header */
+header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Sections */
+section {
+    margin-bottom: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+/* Feature */
+.feature {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+}
+
+/* List Styles */
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #f0f0f0;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.feature {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.feature:nth-child(1) { animation-delay: 0.1s; }
+.feature:nth-child(2) { animation-delay: 0.2s; }
+.feature:nth-child(3) { animation-delay: 0.3s; }
+.feature:nth-child(4) { animation-delay: 0.4s; }

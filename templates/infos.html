@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/infos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <title>Artists Informations</title>
+</head>
+
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="https://videos.pexels.com/video-files/4124198/4124198-hd_1920_1080_24fps.mp4" type="video/mp4">
+
+        Your browser does not support the video tag.
+    </video>
+    <div class="button">
+        <a href="/">
+            <button>Home</button>
+        </a>
+    </div>
+    <h1>{{.artist.Name}}</h1>
+    <img src="{{.artist.Image}}" alt="{{.artist.Name}}">
+    <div class="infosContainer">
+        <h2>ID</h2>
+        <p>{{.artist.Id}}</p>
+        <h2>Creation Date</h2>
+        <p>{{.artist.CreationDate}}</p>
+        <h2>Members</h2>
+        <ul class="Members">
+            {{range .artist.Members}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+
+        <h2>Locations</h2>
+        <ul class="locations">
+            {{range .locations}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+
+        <h2>Dates</h2>
+        <ul class="dates">
+            {{range .dates}}
+            <li>{{.}}</li>
+            {{end}}
+        </ul>
+
+        <h2>Relations</h2>
+        <div class="relations-container">
+            {{range $key, $value := .DatesLocations}}
+            <div class="relation-item">
+                <span class="relation-location">{{$key}}</span>
+                <div class="relation-dates">
+                    {{range $value}}
+                    <span class="relation-date">{{.}}</span>
+                    {{end}}
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</body>
+
+</html>
